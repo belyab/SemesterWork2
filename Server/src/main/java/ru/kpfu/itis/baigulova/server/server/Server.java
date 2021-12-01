@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Server extends Thread {
 
-    private static final int PORT = 5555;
+    private static final int PORT = 5556;
     private ServerSocket serverSocket;
     private List<ClientThread> clientThreads = Collections.synchronizedList(new ArrayList<>());
 
