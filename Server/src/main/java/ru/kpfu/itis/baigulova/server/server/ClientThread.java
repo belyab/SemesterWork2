@@ -11,6 +11,8 @@ public class ClientThread implements Runnable {
     private DataInputStream input;
     private DataOutputStream output;
 
+    private int positionOnMap;
+
     public ClientThread(Server server, Socket socket) {
         this.server = server;
         try{
