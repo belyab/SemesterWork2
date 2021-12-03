@@ -15,10 +15,11 @@ public class MainClient extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage primaryStage) throws Exception {
         MainClient.primaryStage = primaryStage;
         FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResourceAsStream(""));
+        Parent root = loader.load(getClass().getResourceAsStream("/fxml/login.fxml"));
+        primaryStage.setTitle("Login");
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
         primaryStage.setMinHeight(900);
