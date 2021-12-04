@@ -22,6 +22,14 @@ public class Client {
         }
     }
 
+    public boolean auth(String name, String pass) throws IOException {
+        output.writeUTF("/auth " + name + " " + pass);
+
+        String response = input.readUTF();
+        System.out.println(response);
+        return response.startsWith("/auth_success");
+    }
+
     public static Client getClient() {
         return client;
     }
