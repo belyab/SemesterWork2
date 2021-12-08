@@ -24,7 +24,7 @@ public class LoginController {
             try {
                 auth = client.auth(loginField.getText(), passwordField.getText());
                 if (auth) {
-//                   перекидывает на страницу игры
+                    WindowManager.renderQueueWindow(MainClient.primaryStage);
                 } else {
                     WindowManager.alert("Ошибка", "Неверный логин или пароль");
                 }

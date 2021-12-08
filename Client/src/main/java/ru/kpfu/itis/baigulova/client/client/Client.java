@@ -45,5 +45,18 @@ public class Client {
             e.printStackTrace();
         }
     }
+
+    public int getCommands() throws IOException {
+        while (true) {
+            String message = input.readUTF();
+            System.out.println(message);
+            if (message.startsWith("/foundgame")) {
+                return 1;
+            } else if (message.startsWith("/defend")) {
+                return Integer.parseInt(message.split(" ")[1]);
+            } else
+                System.out.println(message);
+        }
+    }
 }
 
