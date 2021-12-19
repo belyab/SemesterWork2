@@ -22,8 +22,8 @@ public class MainClient extends Application {
         primaryStage.setTitle("Login");
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
-        primaryStage.setMinHeight(900);
-        primaryStage.setMinWidth(1280);
+        primaryStage.setMinHeight(100);
+        primaryStage.setMinWidth(900);
         primaryStage.show();
     }
 }

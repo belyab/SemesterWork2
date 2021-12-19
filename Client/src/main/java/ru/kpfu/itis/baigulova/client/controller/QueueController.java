@@ -19,7 +19,7 @@ public class QueueController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         progressIndicator.setProgress(ProgressBar.INDETERMINATE_PROGRESS);
         new Thread(() -> {
-            Client client = Client.getClient();
+            Client client = Client.getInstance();
             try {
                 int command = client.getCommands();
                 if (command==1){

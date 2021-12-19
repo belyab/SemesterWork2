@@ -19,7 +19,7 @@ public class LoginController {
 
     public void login(ActionEvent actionEvent) throws IOException {
         Platform.runLater(() -> {
-            Client client = Client.getClient();
+            Client client = Client.getInstance();
             boolean auth = false;
             try {
                 auth = client.auth(loginField.getText(), passwordField.getText());

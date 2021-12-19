@@ -1,5 +1,9 @@
 package ru.kpfu.itis.baigulova.client.client;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.application.Platform;
+import javafx.collections.ObservableList;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -14,13 +18,18 @@ public class Client {
 
     public Client() {
         try {
-            this.socket = new Socket("localhost", 5557);
+            this.socket = new Socket("localhost", 8083);
             this.input = new DataInputStream(socket.getInputStream());
             this.output = new DataOutputStream(socket.getOutputStream());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    public static Client getInstance() {
+        return client;
+    }
+
 
     public boolean auth(String name, String pass) throws IOException {
         output.writeUTF("/auth " + name + " " + pass);
@@ -30,9 +39,6 @@ public class Client {
         return response.startsWith("/auth_success");
     }
 
-    public static Client getClient() {
-        return client;
-    }
 
     public void  sendMessage(String message) throws IOException {
         output.writeUTF(message);
@@ -43,6 +49,48 @@ public class Client {
             socket.close();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public Integer[] getGameMap() throws IOException {
+        sendMessage("/getmap");
+        String msg = input.readUTF();
+        System.out.println("/getmap");
+        final ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(msg, Integer[].class);
+    }
+
+    public Integer[] getStartGameMap() throws IOException {
+        sendMessage("/map");
+        String msg = input.readUTF();
+        System.out.println("/map");
+        final ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(msg, Integer[].class);
+    }
+
+    public int waitBackFromServer() {
+        try {
+            String msg = input.readUTF();
+            return Integer.parseInt(msg.split("/backmap ")[1].trim());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    public boolean whoseStage() throws IOException {
+        sendMessage("/whom");
+        String msg = input.readUTF();
+        return msg.startsWith("true");
+    }
+
+    public String waitQuestion() throws IOException {
+        System.out.println("tut");
+        while (true) {
+            System.out.println("tut2");
+            String response = input.readUTF();
+            System.out.println("mess: " + response);
+            return response;
         }
     }
 
@@ -58,5 +106,6 @@ public class Client {
                 System.out.println(message);
         }
     }
+
 }
 

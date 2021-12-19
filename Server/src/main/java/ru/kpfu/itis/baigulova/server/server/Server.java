@@ -1,7 +1,10 @@
 package ru.kpfu.itis.baigulova.server.server;
 
 import lombok.SneakyThrows;
+import ru.kpfu.itis.baigulova.server.Task.AuthenticationTask;
 import ru.kpfu.itis.baigulova.server.Task.GameTask;
+import ru.kpfu.itis.baigulova.server.service.AuthenticationService;
+import ru.kpfu.itis.baigulova.server.service.QuestionService;
 
 import javax.sound.sampled.Port;
 import java.io.IOException;
@@ -14,21 +17,21 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Server extends Thread {
 
-    private static final int PORT = 5557;
     private ServerSocket serverSocket;
+    private Socket socket;
     private List<ClientThread> clientThreads = Collections.synchronizedList(new ArrayList<>());
-    private ConcurrentLinkedQueue<ClientThread> queue = new ConcurrentLinkedQueue<>();
+    private ConcurrentLinkedQueue<ClientThread> queueClients = new ConcurrentLinkedQueue<>();
 
     @Override
     public void run() {
         try {
-            //Создание вопроса
+            QuestionService.setQuestions("/quiz.csv");
 
-            serverSocket = new ServerSocket(PORT);
+            ServerSocket serverSocket = new ServerSocket(8083);
             while (true) {
-                Socket clientSocket = serverSocket.accept();
+                socket = serverSocket.accept();
                 System.out.println("client connected");
-                //авторизация или вход
+                new AuthenticationTask(socket, this, new AuthenticationService()).start();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -37,9 +40,10 @@ public class Server extends Thread {
 
     @SneakyThrows
     public void subscribe(ClientThread clientThread) {
-        if (queue.size() > 0) {
+
+        if (queueClients.size() > 0) {
             System.out.println("tut");
-            ClientThread oldClientThread = queue.poll();
+            ClientThread oldClientThread = queueClients.poll();
 
             assert oldClientThread != null;
 
@@ -59,10 +63,20 @@ public class Server extends Thread {
             clientThreads.add(clientThread);
 
 
-            oldClientThread.sendMessage("/foundgame");
-            clientThread.sendMessage("/foundgame");
+            oldClientThread.sendMsg("/foundgame");
+            clientThread.sendMsg("/foundgame");
         }
         else
-            queue.add(clientThread);
+            queueClients.add(clientThread);
+
+
+    }
+
+    public void broadcast(String msg) {
+        clientThreads.stream().filter(ClientThread::getActive).forEach(clientThread -> {
+            System.out.println("/test");
+            System.out.println(msg);
+            clientThread.sendMsg(msg);
+        });
     }
 }

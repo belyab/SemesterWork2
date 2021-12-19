@@ -17,4 +17,7 @@
       <module name="Server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
+  <component name="TypeScriptCompiler">
+    <option name="useService" value="false" />
+  </component>
 </project>
