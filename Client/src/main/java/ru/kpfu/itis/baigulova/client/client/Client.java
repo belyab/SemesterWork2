@@ -19,7 +19,7 @@ public class Client {
 
     public Client() {
         try {
-            this.socket = new Socket("localhost", 8083);
+            this.socket = new Socket("MacBook-Pro-Elmira.local", 8083);
             this.input = new DataInputStream(socket.getInputStream());
             this.output = new DataOutputStream(socket.getOutputStream());
         } catch (IOException e) {

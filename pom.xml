@@ -12,7 +12,6 @@
     <modules>
         <module>Client</module>
         <module>Server</module>
-        <module>Chat</module>
     </modules>
 
     <properties>
@@ -115,11 +114,7 @@
                 <version>0.0.7</version>
                 <executions>
                     <execution>
-                        <!-- Default configuration for running with: mvn clean javafx:run -->
-                        <id>default-cli</id>
-                        <configuration>
-                            <mainClass>com.example.semesterwork2/com.example.semesterwork2.HelloApplication</mainClass>
-                        </configuration>
+
                     </execution>
                 </executions>
             </plugin>
