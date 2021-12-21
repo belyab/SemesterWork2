@@ -14,6 +14,8 @@ public class ClientThread extends Thread {
     private Server server;
     private DataInputStream input;
     private DataOutputStream output;
+    private Socket socket;
+
 
     private Boolean isActive = Boolean.TRUE;
     private Boolean isGame = Boolean.FALSE;
@@ -79,6 +81,7 @@ public class ClientThread extends Thread {
 
     public ClientThread(Server server, Socket socket) {
         this.server = server;
+        this.socket = socket;
         try {
             input = new DataInputStream(socket.getInputStream());
             output = new DataOutputStream(socket.getOutputStream());
