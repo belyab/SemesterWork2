@@ -5,29 +5,29 @@
       <element id="archive" name="Server.jar">
         <element id="module-output" name="Server" />
       </element>
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-media:mac:14.0.2.1" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-web:14.0.2.1" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:mac:14.0.2.1" />
-      <element id="library" level="project" name="Maven: org.kordamp.ikonli:ikonli-core:12.2.0" />
-      <element id="library" level="project" name="Maven: eu.hansolo:tilesfx:11.48" />
-      <element id="library" level="project" name="Maven: net.synedra:validatorfx:0.1.13" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:mac:14.0.2.1" />
-      <element id="library" level="project" name="Maven: com.dlsc.formsfx:formsfx-core:11.3.2" />
-      <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.12.0-rc2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:mac:14.0.2.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-web:mac:14.0.2.1" />
       <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.11.1" />
+      <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.12.0-rc2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:14.0.2.1" />
+      <element id="library" level="project" name="Maven: org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0" />
+      <element id="library" level="project" name="Maven: com.dlsc.formsfx:formsfx-core:11.3.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-web:14.0.2.1" />
       <element id="library" level="project" name="Maven: org.controlsfx:controlsfx:11.1.0" />
       <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.11.1" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:14.0.2.1" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-web:mac:14.0.2.1" />
-      <element id="library" level="project" name="Maven: org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:mac:14.0.2.1" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:14.0.2.1" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:14.0.2.1" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:mac:14.0.2.1" />
       <element id="library" level="project" name="Maven: org.openjfx:javafx-media:14.0.2.1" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:14.0.2.1" />
       <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.22" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-media:mac:14.0.2.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:mac:14.0.2.1" />
       <element id="library" level="project" name="Maven: org.kordamp.ikonli:ikonli-javafx:12.2.0" />
+      <element id="library" level="project" name="Maven: net.synedra:validatorfx:0.1.13" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:14.0.2.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:14.0.2.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:14.0.2.1" />
+      <element id="library" level="project" name="Maven: eu.hansolo:tilesfx:11.48" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:mac:14.0.2.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:mac:14.0.2.1" />
+      <element id="library" level="project" name="Maven: org.kordamp.ikonli:ikonli-core:12.2.0" />
     </root>
   </artifact>
 </component>

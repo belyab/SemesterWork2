@@ -27,7 +27,7 @@ public class Server extends Thread {
         try {
             QuestionService.setQuestions("/quiz.csv");
 
-            ServerSocket serverSocket = new ServerSocket(8083);
+            ServerSocket serverSocket = new ServerSocket(8082);
             while (true) {
                 socket = serverSocket.accept();
                 System.out.println("client connected");
